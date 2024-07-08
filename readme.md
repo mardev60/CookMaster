@@ -1,5 +1,7 @@
 # CookMaster
 
+![CookMaster Logo](client/src/assets/logo.png)
+
 CookMaster est une application de gestion de recettes de cuisine. Les utilisateurs peuvent créer, modifier et supprimer des recettes, ajouter des ingrédients et consulter les recettes des autres utilisateurs. 
 
 L'application est construite avec React pour le front-end, NestJS pour le back-end et Apollo Client pour la gestion des données GraphQL.
