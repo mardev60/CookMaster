@@ -1,0 +1,83 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Ingredient {
+  id: Int!
+  name: String!
+  quantity: String!
+  unit: String!
+  recipe: Recipe!
+}
+
+type Recipe {
+  id: Int!
+  name: String!
+  description: String!
+  instructions: String!
+  authorId: Int!
+  author: User!
+  ingredients: [Ingredient!]
+}
+
+type User {
+  id: Int!
+  name: String!
+  email: String!
+  recipes: [Recipe!]
+}
+
+type Query {
+  user(id: Int!): User!
+  users: [User!]!
+  userByEmail(email: String!): User
+  recipe(id: Int!): Recipe!
+  recipes: [Recipe!]!
+  ingredients: [Ingredient!]!
+}
+
+type Mutation {
+  createUser(createUserInput: CreateUserInput!): User!
+  updateUser(id: Int!, updateUserInput: UpdateUserInput!): User!
+  deleteUser(id: Int!): User!
+  createRecipe(createRecipeInput: CreateRecipeInput!): Recipe!
+  updateRecipe(id: Int!, updateRecipeInput: UpdateRecipeInput!): Recipe!
+  deleteRecipe(id: Int!): Recipe!
+  createIngredient(name: String!, quantity: String!, unit: String!, recipeId: Int!): Ingredient!
+  updateIngredient(id: Int!, name: String, quantity: String, unit: String): Ingredient!
+  deleteIngredient(id: Int!): Ingredient!
+}
+
+input CreateUserInput {
+  name: String!
+  email: String!
+}
+
+input UpdateUserInput {
+  name: String
+  email: String
+  id: Int!
+}
+
+input CreateRecipeInput {
+  name: String!
+  description: String!
+  instructions: String!
+  authorId: Int!
+  ingredients: [CreateIngredientInput!]!
+}
+
+input CreateIngredientInput {
+  name: String!
+  quantity: String!
+  unit: String!
+}
+
+input UpdateRecipeInput {
+  name: String
+  description: String
+  instructions: String
+  authorId: Int
+  ingredients: [CreateIngredientInput!]
+  id: Int!
+}
